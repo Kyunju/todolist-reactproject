@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [textBox, setTextBox] = useState('');
+  const [items, setItem] = useState([]);
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          야호 <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ul>
+        {items.map((item, index) => {
+          <li key={index}>{item}</li>;
+        })}
+      </ul>
+      <input
+        type='text'
+        name='textBox'
+        id='textBox'
+        value={textBox}
+        onChange={(e) => {
+          setTextBox(e.target.value);
+        }}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            console.log(textBox);
+            setTextBox('');
+          }
+        }}
+      />
     </div>
   );
 }
