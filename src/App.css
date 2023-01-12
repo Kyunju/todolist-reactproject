@@ -1,38 +1,63 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+li {
+  list-style: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: -2px;
+  color: #0e0e11;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.wrapper {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  justify-items: center;
+  background-color: beige;
 }
 
-.App-link {
-  color: #61dafb;
+.contentBox {
+  width: 326px;
+  height: 700px;
+  border: 1px solid gainsboro;
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  background-color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.listBox {
+  margin: 20px 0;
+}
+
+.items {
+  padding: 0.3rem 0rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.items span {
+  letter-spacing: -0.5px;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #575767;
+}
+
+.items .checkbox {
+  margin-right: 0.3rem;
+}
+
+.listCount {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #575767;
 }
