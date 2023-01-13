@@ -1,6 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-import { MdClose } from 'react-icons/md';
+import TodoItems from './components/TodoItems';
 
 function App() {
   const initialList = [
@@ -10,10 +10,11 @@ function App() {
   ];
   const [items, setItem] = useState(initialList);
   const [textBox, setTextBox] = useState('');
+  console.log(items);
   const onRemove = (id) => {
     setItem(items.filter((item) => item.id !== id));
   };
-  const updateCheck = (id) => {
+  const handleCheck = (id) => {
     setItem(
       items.map((item) => {
         if (item.id !== id) return item;
@@ -32,31 +33,14 @@ function App() {
         <ul className='listBox'>
           {items.map((item) => {
             return (
-              <li key={item.id} className='items'>
-                <div className='itemWrapper'>
-                  <label className='checkbox'>
-                    <input
-                      type='checkbox'
-                      onChange={() => {
-                        updateCheck(item.id);
-                      }}
-                      checked={item.checked ? true : false}
-                    />
-                    <span className='checkbox-icon'></span>
-                  </label>
-                  <span className={`itemText ${item.checked && 'checked'}`}>
-                    {item.text}
-                  </span>
-                </div>
-                <button
-                  className='deleteBtn'
-                  onClick={() => {
-                    onRemove(item.id);
-                  }}
-                >
-                  <MdClose />
-                </button>
-              </li>
+              <TodoItems
+                key={item.id}
+                id={item.id}
+                text={item.text}
+                checked={item.checked}
+                handleCheck={handleCheck}
+                onRemove={onRemove}
+              />
             );
           })}
         </ul>
@@ -74,7 +58,11 @@ function App() {
               setTextBox(e.target.value);
               setItem((prev) => [
                 ...prev,
-                { id: new Date(), text: e.target.value, checked: false },
+                {
+                  id: new Date().toLocaleString(),
+                  text: e.target.value,
+                  checked: false,
+                },
               ]);
               setTextBox('');
             }
