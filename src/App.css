@@ -177,12 +177,15 @@ li {
 }
 
 .formWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   padding: 0.3rem;
   border: 1px solid #b9b9be;
   border-radius: 20px;
+}
+
+.formWrapper form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 #textBox {

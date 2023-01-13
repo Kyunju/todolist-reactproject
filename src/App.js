@@ -2,7 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import TodoItems from './components/TodoItems';
 import TodoCounts from './components/TodoCounts';
-import { IoAdd } from 'react-icons/io5';
+import TodoSubmit from './components/TodoSubmit';
 
 function App() {
   const initialList = [
@@ -11,8 +11,6 @@ function App() {
     { id: 2, text: '꿈을 코딩하기', checked: false },
   ];
   const [items, setItem] = useState(initialList);
-  const [textBox, setTextBox] = useState('');
-  console.log(items);
   const onRemove = (id) => {
     setItem(items.filter((item) => item.id !== id));
   };
@@ -23,6 +21,16 @@ function App() {
         return { ...item, checked: !item.checked };
       })
     );
+  };
+  const addItem = (value) => {
+    setItem((prev) => [
+      ...prev,
+      {
+        id: new Date().toLocaleString(),
+        text: value,
+        checked: false,
+      },
+    ]);
   };
   return (
     <div className='wrapper'>
@@ -66,36 +74,7 @@ function App() {
           </ul>
         </section>
         <section className='formView'>
-          <div className='formWrapper'>
-            <input
-              type='text'
-              name='textBox'
-              id='textBox'
-              placeholder='Todo List'
-              value={textBox}
-              onChange={(e) => {
-                setTextBox(e.target.value);
-              }}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  if (e.target.value === '') return;
-                  setTextBox(e.target.value);
-                  setItem((prev) => [
-                    ...prev,
-                    {
-                      id: new Date().toLocaleString(),
-                      text: e.target.value,
-                      checked: false,
-                    },
-                  ]);
-                  setTextBox('');
-                }
-              }}
-            />
-            <button className='submitBtn'>
-              <IoAdd />
-            </button>
-          </div>
+          <TodoSubmit addItem={addItem} />
         </section>
       </div>
     </div>
