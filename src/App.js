@@ -30,16 +30,17 @@ function App() {
             return (
               <li key={item.id} className='items'>
                 <div className='itemWrapper'>
-                  <input
-                    type='checkbox'
-                    name='checkbox'
-                    className='checkbox'
-                    onChange={() => {
-                      updateCheck(item.id);
-                    }}
-                    checked={item.checked ? true : false}
-                  />
-                  <span>{item.text}</span>
+                  <label className='checkbox'>
+                    <input
+                      type='checkbox'
+                      onChange={() => {
+                        updateCheck(item.id);
+                      }}
+                      checked={item.checked ? true : false}
+                    />
+                    <span className='checkbox-icon'></span>
+                  </label>
+                  <span className='itemText'>{item.text}</span>
                 </div>
                 <button
                   className='deleteBtn'
