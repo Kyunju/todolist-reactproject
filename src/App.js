@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import TodoItems from './components/TodoItems';
+import TodoCounts from './components/TodoCounts';
 
 function App() {
   const initialList = [
@@ -26,10 +27,7 @@ function App() {
     <div className='wrapper'>
       <div className='contentBox'>
         <div className='title'>My Tasks</div>
-        <div className='listCount'>
-          {items.filter((item) => !item.checked).length} incomplete,{' '}
-          {items.filter((item) => item.checked).length} completed
-        </div>
+        <TodoCounts items={items} />
         <ul className='listBox'>
           {items.map((item) => {
             return (
