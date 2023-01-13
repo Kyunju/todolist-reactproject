@@ -26,6 +26,28 @@ li {
   background-color: beige;
 }
 
+.todoView {
+  padding-top: 20px;
+  height: 550px;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.todoView::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+.listBox {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.listTitle {
+  font-size: 15px;
+  color: #575767;
+  font-weight: 700;
+}
+
 .contentBox {
   width: 326px;
   height: 700px;
@@ -35,30 +57,29 @@ li {
   background-color: white;
 }
 
-.listBox {
-  margin: 20px 0;
-}
-
 .items {
   padding: 0.3rem 0rem;
   display: flex;
   justify-content: space-between;
 }
 
-.items span {
+.itemWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.items .itemText {
+  display: inline-block;
   letter-spacing: -0.5px;
   font-weight: 500;
   font-size: 1rem;
+  padding-left: 5px;
   color: #575767;
 }
 
 .items .checkbox {
   margin-right: 0.3rem;
-}
-
-.items .itemText {
-  display: inline-block;
-  vertical-align: middle;
 }
 
 .itemText.checked {
@@ -77,6 +98,7 @@ li {
 }
 
 .checkbox span {
+  margin-top: -4px;
   display: inline-block;
   vertical-align: middle;
   cursor: pointer;
@@ -152,4 +174,31 @@ li {
 
 .deleteBtn:hover {
   color: #575767;
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.3rem;
+  border: 1px solid #b9b9be;
+  border-radius: 20px;
+}
+
+#textBox {
+  width: 100%;
+  outline: none;
+  margin-left: 10px;
+  border: none;
+  color: #575767;
+}
+
+.submitBtn {
+  font-size: 18px;
+  background-color: transparent;
+  color: #575767;
+  border: none;
+  padding: 2px 4px;
+  border-radius: 50%;
+  cursor: pointer;
 }

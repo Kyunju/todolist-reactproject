@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import TodoItems from './components/TodoItems';
 import TodoCounts from './components/TodoCounts';
+import { IoAdd } from 'react-icons/io5';
 
 function App() {
   const initialList = [
@@ -28,44 +29,74 @@ function App() {
       <div className='contentBox'>
         <div className='title'>My Tasks</div>
         <TodoCounts items={items} />
-        <ul className='listBox'>
-          {items.map((item) => {
-            return (
-              <TodoItems
-                key={item.id}
-                id={item.id}
-                text={item.text}
-                checked={item.checked}
-                handleCheck={handleCheck}
-                onRemove={onRemove}
-              />
-            );
-          })}
-        </ul>
-        <input
-          type='text'
-          name='textBox'
-          id='textBox'
-          value={textBox}
-          onChange={(e) => {
-            setTextBox(e.target.value);
-          }}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              if (e.target.value === '') return;
-              setTextBox(e.target.value);
-              setItem((prev) => [
-                ...prev,
-                {
-                  id: new Date().toLocaleString(),
-                  text: e.target.value,
-                  checked: false,
-                },
-              ]);
-              setTextBox('');
-            }
-          }}
-        />
+        <section className='todoView'>
+          <h6 className='listTitle'>Incomplete</h6>
+          <ul className='listBox'>
+            {items
+              .filter((item) => !item.checked)
+              .map((item) => {
+                return (
+                  <TodoItems
+                    key={item.id}
+                    id={item.id}
+                    text={item.text}
+                    checked={item.checked}
+                    handleCheck={handleCheck}
+                    onRemove={onRemove}
+                  />
+                );
+              })}
+          </ul>
+          <h6 className='listTitle'>Complete</h6>
+          <ul className='listBox'>
+            {items
+              .filter((item) => item.checked)
+              .map((item) => {
+                return (
+                  <TodoItems
+                    key={item.id}
+                    id={item.id}
+                    text={item.text}
+                    checked={item.checked}
+                    handleCheck={handleCheck}
+                    onRemove={onRemove}
+                  />
+                );
+              })}
+          </ul>
+        </section>
+        <section className='formView'>
+          <div className='formWrapper'>
+            <input
+              type='text'
+              name='textBox'
+              id='textBox'
+              placeholder='Todo List'
+              value={textBox}
+              onChange={(e) => {
+                setTextBox(e.target.value);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  if (e.target.value === '') return;
+                  setTextBox(e.target.value);
+                  setItem((prev) => [
+                    ...prev,
+                    {
+                      id: new Date().toLocaleString(),
+                      text: e.target.value,
+                      checked: false,
+                    },
+                  ]);
+                  setTextBox('');
+                }
+              }}
+            />
+            <button className='submitBtn'>
+              <IoAdd />
+            </button>
+          </div>
+        </section>
       </div>
     </div>
   );
