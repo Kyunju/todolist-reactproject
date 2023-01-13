@@ -61,6 +61,11 @@ li {
   vertical-align: middle;
 }
 
+.itemText.checked {
+  color: #b9b9be;
+  text-decoration: line-through;
+}
+
 .listCount {
   margin-top: 6px;
   font-size: 14px;
@@ -89,10 +94,10 @@ li {
 .checkbox .checkbox-icon::after {
   content: '';
   position: absolute;
-  top: -1px;
+  top: 0px;
   left: 5px;
   width: 5px;
-  height: 11px;
+  height: 9px;
   border-right: 2px solid #fff;
   border-bottom: 2px solid #fff;
   transform: rotate(45deg) scale(0);

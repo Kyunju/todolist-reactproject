@@ -24,7 +24,10 @@ function App() {
     <div className='wrapper'>
       <div className='contentBox'>
         <div className='title'>My Tasks</div>
-        <div className='listCount'>{items.length} incomplete, 5 completed</div>
+        <div className='listCount'>
+          {items.filter((item) => !item.checked).length} incomplete,{' '}
+          {items.filter((item) => item.checked).length} completed
+        </div>
         <ul className='listBox'>
           {items.map((item) => {
             return (
@@ -40,7 +43,9 @@ function App() {
                     />
                     <span className='checkbox-icon'></span>
                   </label>
-                  <span className='itemText'>{item.text}</span>
+                  <span className={`itemText ${item.checked && 'checked'}`}>
+                    {item.text}
+                  </span>
                 </div>
                 <button
                   className='deleteBtn'
