@@ -140,3 +140,16 @@ li {
     transform: scale(1, 1);
   }
 }
+
+.deleteBtn {
+  padding: 0.1rem 0.3rem;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #b9b9be;
+}
+
+.deleteBtn:hover {
+  color: #575767;
+}

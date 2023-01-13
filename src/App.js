@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import { MdClose } from 'react-icons/md';
 
 function App() {
   const initialList = [
@@ -53,7 +54,7 @@ function App() {
                     onRemove(item.id);
                   }}
                 >
-                  삭제
+                  <MdClose />
                 </button>
               </li>
             );
@@ -69,7 +70,7 @@ function App() {
           }}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
-              if (e.target.value == '') return;
+              if (e.target.value === '') return;
               setTextBox(e.target.value);
               setItem((prev) => [
                 ...prev,
