@@ -5,6 +5,7 @@ export default function TodoSubmit({ addItem }) {
   const [todoItem, setTodoItem] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (todoItem === '') return;
     addItem(todoItem);
     setTodoItem('');
   };
