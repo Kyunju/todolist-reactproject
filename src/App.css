@@ -28,7 +28,7 @@ li {
 
 .todoView {
   padding-top: 20px;
-  height: 550px;
+  height: 530px;
   overflow-y: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -200,6 +200,7 @@ li {
 
 #textBox {
   width: 100%;
+  background-color: transparent;
   outline: none;
   margin-left: 10px;
   border: none;
@@ -214,4 +215,13 @@ li {
   padding: 2px 4px;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.darkModeBtn {
+  background-color: transparent;
+  padding: 0.3rem 0.5rem;
+  margin-bottom: 5px;
+  border: 1px solid #b9b9be;
+  border-radius: 15px;
+  color: #949494;
 }

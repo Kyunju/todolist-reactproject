@@ -1,0 +1,18 @@
+#textBox {
+  width: 100%;
+  outline: none;
+  margin-left: 10px;
+  border: none;
+  color: #ebebeb;
+  background-color: transparent;
+}
+
+.submitBtn {
+  font-size: 18px;
+  background-color: transparent;
+  color: #ebebeb;
+  border: none;
+  padding: 2px 4px;
+  border-radius: 50%;
+  cursor: pointer;
+}

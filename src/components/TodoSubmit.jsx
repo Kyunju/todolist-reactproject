@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { IoAdd } from 'react-icons/io5';
+import { DarkModeContext } from '../App';
+import submitDarkMode from './DarkModeSubmit.module.css';
 
 export default function TodoSubmit({ addItem }) {
   const [todoItem, setTodoItem] = useState('');
+  const { darkMode } = useContext(DarkModeContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (todoItem === '') return;
@@ -15,14 +18,14 @@ export default function TodoSubmit({ addItem }) {
         <input
           type='text'
           name='textBox'
-          id='textBox'
+          id={darkMode ? submitDarkMode.textBox : 'textBox'}
           placeholder='Todo List'
           value={todoItem}
           onChange={(e) => {
             setTodoItem(e.target.value);
           }}
         />
-        <button className='submitBtn'>
+        <button className={darkMode ? submitDarkMode.submitBtn : 'submitBtn'}>
           <IoAdd />
         </button>
       </form>
