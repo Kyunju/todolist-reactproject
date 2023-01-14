@@ -6,7 +6,7 @@ import TodoSubmit from './components/TodoSubmit';
 
 function App() {
   const initialList = JSON.parse(localStorage.getItem('todoList'));
-  const [items, setItem] = useState(initialList);
+  const [items, setItem] = useState([...initialList]);
   const onRemove = (id) => {
     setItem(items.filter((item) => item.id !== id));
   };
