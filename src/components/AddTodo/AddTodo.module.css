@@ -18,7 +18,7 @@
 .button {
   cursor: pointer;
   background-color: var(--color-accent);
-  color: white;
+  color: var(--color-white);
   font-weight: bold;
   font-size: 1.4rem;
   padding: 0 2rem;

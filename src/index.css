@@ -5,6 +5,14 @@
   --color-text: #22243b;
   --color-accent: #f16e03;
   --color-scrollbar: #aaa7a7;
+  --color-white: white;
+}
+
+html.dark {
+  --color-bg-dark: #1a1c35;
+  --color-bg: #22243b;
+  --color-gray: #4e4e4e;
+  --color-text: #fdfffd;
 }
 
 body {
