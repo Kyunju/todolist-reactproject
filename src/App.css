@@ -16,16 +16,6 @@ li {
   color: #0e0e11;
 }
 
-.wrapper {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  justify-items: center;
-  background-color: beige;
-}
-
 .todoView {
   padding-top: 20px;
   height: 530px;

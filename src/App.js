@@ -40,57 +40,16 @@ function App() {
 
   return (
     <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      <div className={darkMode ? DarkMode.wrapper : 'wrapper'}>
-        <div className={darkMode ? DarkMode.contentBox : 'contentBox'}>
-          <button onClick={() => toggleDarkMode()} className='darkModeBtn'>
-            {darkMode ? 'Light mode' : 'Dark mode'}
-          </button>
-          <div className={darkMode ? DarkMode.title : 'title'}>My Tasks</div>
-          <TodoCounts items={items} />
-          <section className='todoView'>
-            <h6 className={darkMode ? DarkMode.listTitle : 'listTitle'}>
-              Incomplete
-            </h6>
-            <ul className='listBox'>
-              {items
-                .filter((item) => !item.checked)
-                .map((item) => {
-                  return (
-                    <TodoItems
-                      key={item.id}
-                      id={item.id}
-                      text={item.text}
-                      checked={item.checked}
-                      handleCheck={handleCheck}
-                      onRemove={onRemove}
-                    />
-                  );
-                })}
-            </ul>
-            <h6 className={darkMode ? DarkMode.listTitle : 'listTitle'}>
-              Complete
-            </h6>
-            <ul className='listBox'>
-              {items
-                .filter((item) => item.checked)
-                .map((item) => {
-                  return (
-                    <TodoItems
-                      key={item.id}
-                      id={item.id}
-                      text={item.text}
-                      checked={item.checked}
-                      handleCheck={handleCheck}
-                      onRemove={onRemove}
-                    />
-                  );
-                })}
-            </ul>
-          </section>
-          <section className='formView'>
-            <TodoSubmit addItem={addItem} />
-          </section>
-        </div>
+      <div className={darkMode ? DarkMode.contentBox : 'contentBox'}>
+        <button onClick={() => toggleDarkMode()} className='darkModeBtn'>
+          {darkMode ? 'Light mode' : 'Dark mode'}
+        </button>
+        <div className={darkMode ? DarkMode.title : 'title'}>My Tasks</div>
+        <TodoCounts items={items} />
+
+        <section className='formView'>
+          <TodoSubmit addItem={addItem} />
+        </section>
       </div>
     </DarkModeContext.Provider>
   );
