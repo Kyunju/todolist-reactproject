@@ -40,17 +40,15 @@ function App() {
 
   return (
     <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      <div className={darkMode ? DarkMode.wrapper : 'wrapper'}>
-        <div className={darkMode ? DarkMode.contentBox : 'contentBox'}>
+      <div className={'wrapper'}>
+        <div className={'contentBox'}>
           <button onClick={() => toggleDarkMode()} className='darkModeBtn'>
             {darkMode ? 'Light mode' : 'Dark mode'}
           </button>
-          <div className={darkMode ? DarkMode.title : 'title'}>My Tasks</div>
+          <div className={'title'}>My Tasks</div>
           <TodoCounts items={items} />
           <section className='todoView'>
-            <h6 className={darkMode ? DarkMode.listTitle : 'listTitle'}>
-              Incomplete
-            </h6>
+            <h6 className={'listTitle'}>Incomplete</h6>
             <ul className='listBox'>
               {items
                 .filter((item) => !item.checked)
@@ -67,9 +65,7 @@ function App() {
                   );
                 })}
             </ul>
-            <h6 className={darkMode ? DarkMode.listTitle : 'listTitle'}>
-              Complete
-            </h6>
+            <h6 className={'listTitle'}>Complete</h6>
             <ul className='listBox'>
               {items
                 .filter((item) => item.checked)

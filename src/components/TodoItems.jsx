@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { MdClose } from 'react-icons/md';
 import { DarkModeContext } from '../App';
-import listDarkMode from './TodoItemsDarkMode.module.css';
 
 export default function TodoItems({
   id,
@@ -13,9 +12,9 @@ export default function TodoItems({
   const { darkMode } = useContext(DarkModeContext);
 
   return (
-    <li className={darkMode ? listDarkMode.items : 'items'}>
-      <div className={darkMode ? listDarkMode.itemWrapper : 'itemWrapper'}>
-        <label className={darkMode ? listDarkMode.checkbox : 'checkbox'}>
+    <li className={'items'}>
+      <div className={'itemWrapper'}>
+        <label className={'checkbox'}>
           <input
             type='checkbox'
             onChange={() => {
@@ -23,19 +22,9 @@ export default function TodoItems({
             }}
             checked={checked ? true : false}
           />
-          <span
-            className={darkMode ? listDarkMode.checkboxIcon : 'checkbox-icon'}
-          ></span>
+          <span className={'checkbox-icon'}></span>
         </label>
-        <span
-          className={
-            darkMode
-              ? `${listDarkMode.itemText} ${checked && listDarkMode.checked}`
-              : `itemText ${checked && 'checked'}`
-          }
-        >
-          {text}
-        </span>
+        <span className={`itemText ${checked && 'checked'}`}>{text}</span>
       </div>
       <button
         className='deleteBtn'
