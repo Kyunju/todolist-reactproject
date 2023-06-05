@@ -1,3 +1,22 @@
+:root {
+  --color-gray: #575767;
+  --color-dark-gray: #0e0e11;
+  --color-soft-gray: #b9b9be;
+  --color-accent: #ff1616;
+  --color-bg: white;
+  --color-screenBg: beige;
+  --color-content-border: gainsboro;
+}
+
+html.dark {
+  --color-gray: #dadada;
+  --color-dark-gray: #dadada;
+  --color-bg: #141419;
+  --color-screenBg: #141419;
+  --color-content-border: #575767;
+  --color-accent: #27ffc7;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +32,7 @@ li {
   font-weight: 600;
   font-size: 2rem;
   letter-spacing: -2px;
-  color: #0e0e11;
+  color: var(--color-dark-gray);
 }
 
 .wrapper {
@@ -23,7 +42,7 @@ li {
   justify-content: center;
   align-items: center;
   justify-items: center;
-  background-color: beige;
+  background-color: var(--color-screenBg);
 }
 
 .todoView {
@@ -44,7 +63,7 @@ li {
 
 .listTitle {
   font-size: 15px;
-  color: #575767;
+  color: var(--color-gray);
   font-weight: 700;
 }
 
@@ -54,7 +73,7 @@ li {
   border: 1px solid gainsboro;
   border-radius: 12px;
   padding: 1.5rem 1rem;
-  background-color: white;
+  background-color: var(--color-bg);
 }
 
 .items {
@@ -75,7 +94,7 @@ li {
   font-weight: 500;
   font-size: 1rem;
   padding-left: 5px;
-  color: #575767;
+  color: var(--color-gray);
 }
 
 .items .checkbox {
@@ -83,14 +102,14 @@ li {
 }
 
 .itemText.checked {
-  color: #b9b9be;
+  color: var(--color-soft-gray);
   text-decoration: line-through;
 }
 
 .listCount {
   margin-top: 6px;
   font-size: 14px;
-  color: #575767;
+  color: var(--color-gray);
 }
 
 .checkbox input {
@@ -128,7 +147,7 @@ li {
 
 .checkbox input:checked ~ .checkbox-icon {
   border-color: transparent;
-  background: #ff1616;
+  background: var(--color-accent);
   animation: jelly 0.6s ease;
 }
 
@@ -179,16 +198,16 @@ li {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: #b9b9be;
+  color: var(--color-soft-gray);
 }
 
 .deleteBtn:hover {
-  color: #575767;
+  color: var(--color-gray);
 }
 
 .formWrapper {
   padding: 0.3rem;
-  border: 1px solid #b9b9be;
+  border: 1px solid var(--color-soft-gray);
   border-radius: 20px;
 }
 
@@ -204,13 +223,13 @@ li {
   outline: none;
   margin-left: 10px;
   border: none;
-  color: #575767;
+  color: var(--color-gray);
 }
 
 .submitBtn {
   font-size: 18px;
   background-color: transparent;
-  color: #575767;
+  color: var(--color-gray);
   border: none;
   padding: 2px 4px;
   border-radius: 50%;
@@ -221,7 +240,7 @@ li {
   background-color: transparent;
   padding: 0.3rem 0.5rem;
   margin-bottom: 5px;
-  border: 1px solid #b9b9be;
+  border: 1px solid var(--color-soft-gray);
   border-radius: 15px;
   color: #949494;
 }

@@ -1,17 +1,13 @@
 import './App.css';
-import { createContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import TodoItems from './components/TodoItems';
-import TodoCounts from './components/TodoCounts';
 import TodoSubmit from './components/TodoSubmit';
-import DarkMode from './AppDarkMode.module.css';
-
-export const DarkModeContext = createContext();
+import { DarkModeProvider } from './context/DarkModeContext';
+import Header from './components/Header';
 
 function App() {
   const initialList = JSON.parse(localStorage.getItem('todoList')) || [];
   const [items, setItem] = useState(initialList);
-  const [darkMode, setDarkMode] = useState(false);
-  const toggleDarkMode = () => setDarkMode((mode) => !mode);
   const onRemove = (id) => {
     setItem(items.filter((item) => item.id !== id));
   };
@@ -39,18 +35,12 @@ function App() {
   }, [items]);
 
   return (
-    <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      <div className={darkMode ? DarkMode.wrapper : 'wrapper'}>
-        <div className={darkMode ? DarkMode.contentBox : 'contentBox'}>
-          <button onClick={() => toggleDarkMode()} className='darkModeBtn'>
-            {darkMode ? 'Light mode' : 'Dark mode'}
-          </button>
-          <div className={darkMode ? DarkMode.title : 'title'}>My Tasks</div>
-          <TodoCounts items={items} />
+    <DarkModeProvider>
+      <div className={'wrapper'}>
+        <div className={'contentBox'}>
+          <Header items={items} />
           <section className='todoView'>
-            <h6 className={darkMode ? DarkMode.listTitle : 'listTitle'}>
-              Incomplete
-            </h6>
+            <h6 className={'listTitle'}>Incomplete</h6>
             <ul className='listBox'>
               {items
                 .filter((item) => !item.checked)
@@ -67,9 +57,7 @@ function App() {
                   );
                 })}
             </ul>
-            <h6 className={darkMode ? DarkMode.listTitle : 'listTitle'}>
-              Complete
-            </h6>
+            <h6 className={'listTitle'}>Complete</h6>
             <ul className='listBox'>
               {items
                 .filter((item) => item.checked)
@@ -92,7 +80,7 @@ function App() {
           </section>
         </div>
       </div>
-    </DarkModeContext.Provider>
+    </DarkModeProvider>
   );
 }
 
