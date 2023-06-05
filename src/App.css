@@ -4,6 +4,17 @@
   --color-soft-gray: #b9b9be;
   --color-accent: #ff1616;
   --color-bg: white;
+  --color-screenBg: beige;
+  --color-content-border: gainsboro;
+}
+
+html.dark {
+  --color-gray: #dadada;
+  --color-dark-gray: #dadada;
+  --color-bg: #141419;
+  --color-screenBg: #141419;
+  --color-content-border: #575767;
+  --color-accent: #27ffc7;
 }
 
 * {
@@ -31,7 +42,7 @@ li {
   justify-content: center;
   align-items: center;
   justify-items: center;
-  background-color: beige;
+  background-color: var(--color-screenBg);
 }
 
 .todoView {

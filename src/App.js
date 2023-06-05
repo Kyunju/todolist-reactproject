@@ -1,17 +1,13 @@
 import './App.css';
-import { createContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import TodoItems from './components/TodoItems';
-import TodoCounts from './components/TodoCounts';
 import TodoSubmit from './components/TodoSubmit';
-import DarkMode from './AppDarkMode.module.css';
-
-export const DarkModeContext = createContext();
+import { DarkModeProvider } from './context/DarkModeContext';
+import Header from './components/Header';
 
 function App() {
   const initialList = JSON.parse(localStorage.getItem('todoList')) || [];
   const [items, setItem] = useState(initialList);
-  const [darkMode, setDarkMode] = useState(false);
-  const toggleDarkMode = () => setDarkMode((mode) => !mode);
   const onRemove = (id) => {
     setItem(items.filter((item) => item.id !== id));
   };
@@ -39,14 +35,10 @@ function App() {
   }, [items]);
 
   return (
-    <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
+    <DarkModeProvider>
       <div className={'wrapper'}>
         <div className={'contentBox'}>
-          <button onClick={() => toggleDarkMode()} className='darkModeBtn'>
-            {darkMode ? 'Light mode' : 'Dark mode'}
-          </button>
-          <div className={'title'}>My Tasks</div>
-          <TodoCounts items={items} />
+          <Header items={items} />
           <section className='todoView'>
             <h6 className={'listTitle'}>Incomplete</h6>
             <ul className='listBox'>
@@ -88,7 +80,7 @@ function App() {
           </section>
         </div>
       </div>
-    </DarkModeContext.Provider>
+    </DarkModeProvider>
   );
 }
 

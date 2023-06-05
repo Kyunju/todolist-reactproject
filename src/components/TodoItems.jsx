@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { MdClose } from 'react-icons/md';
-import { DarkModeContext } from '../App';
 
 export default function TodoItems({
   id,
@@ -9,8 +8,6 @@ export default function TodoItems({
   handleCheck,
   onRemove,
 }) {
-  const { darkMode } = useContext(DarkModeContext);
-
   return (
     <li className={'items'}>
       <div className={'itemWrapper'}>
